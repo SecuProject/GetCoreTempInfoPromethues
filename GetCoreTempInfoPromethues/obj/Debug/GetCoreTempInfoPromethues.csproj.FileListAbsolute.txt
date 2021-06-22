@@ -9,3 +9,14 @@ C:\Users\Admin\Desktop\Add to git\GetCoreTempInfoPromethues\GetCoreTempInfoProme
 C:\Users\Admin\Desktop\Add to git\GetCoreTempInfoPromethues\GetCoreTempInfoPromethues\obj\Debug\GetCoreTempInfoPromethues.csproj.CopyComplete
 C:\Users\Admin\Desktop\Add to git\GetCoreTempInfoPromethues\GetCoreTempInfoPromethues\obj\Debug\GetCoreTempInfoPromethues.exe
 C:\Users\Admin\Desktop\Add to git\GetCoreTempInfoPromethues\GetCoreTempInfoPromethues\obj\Debug\GetCoreTempInfoPromethues.pdb
+E:\Projects\exporter\GetCoreTempInfoPromethues\GetCoreTempInfoPromethues\bin\Debug\GetCoreTempInfoPromethues.exe.config
+E:\Projects\exporter\GetCoreTempInfoPromethues\GetCoreTempInfoPromethues\bin\Debug\GetCoreTempInfoPromethues.exe
+E:\Projects\exporter\GetCoreTempInfoPromethues\GetCoreTempInfoPromethues\bin\Debug\GetCoreTempInfoPromethues.pdb
+E:\Projects\exporter\GetCoreTempInfoPromethues\GetCoreTempInfoPromethues\bin\Debug\GetCoreTempInfoNET.dll
+E:\Projects\exporter\GetCoreTempInfoPromethues\GetCoreTempInfoPromethues\obj\Debug\GetCoreTempInfoPromethues.csprojAssemblyReference.cache
+E:\Projects\exporter\GetCoreTempInfoPromethues\GetCoreTempInfoPromethues\obj\Debug\GetCoreTempInfoPromethues.Properties.Resources.resources
+E:\Projects\exporter\GetCoreTempInfoPromethues\GetCoreTempInfoPromethues\obj\Debug\GetCoreTempInfoPromethues.csproj.GenerateResource.cache
+E:\Projects\exporter\GetCoreTempInfoPromethues\GetCoreTempInfoPromethues\obj\Debug\GetCoreTempInfoPromethues.csproj.CoreCompileInputs.cache
+E:\Projects\exporter\GetCoreTempInfoPromethues\GetCoreTempInfoPromethues\obj\Debug\GetCoreTempInfoPromethues.csproj.CopyComplete
+E:\Projects\exporter\GetCoreTempInfoPromethues\GetCoreTempInfoPromethues\obj\Debug\GetCoreTempInfoPromethues.exe
+E:\Projects\exporter\GetCoreTempInfoPromethues\GetCoreTempInfoPromethues\obj\Debug\GetCoreTempInfoPromethues.pdb

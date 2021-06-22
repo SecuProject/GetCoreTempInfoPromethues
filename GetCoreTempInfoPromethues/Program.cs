@@ -3,40 +3,45 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using GetCoreTempInfoNET;
-using System.Globalization;
 using System.Threading;
 
 namespace GetCoreTempInfoPromethues {
     class Program {
+
+        static string TemplateMsg(string type) {
+            string templateMsg = 
+                "# HELP windows_coretemp_" + type + " Metric coming from Core Temp\n" +
+                "# TYPE windows_coretemp_" + type + " counter\n";
+            return templateMsg;
+        }
+
         static void Main(string[] args) {
             CoreTempInfo CTInfo = new CoreTempInfo();
             CTInfo.ReportError += new ErrorOccured(CTInfo_ReportError);
 
-            bool bReadSuccess = CTInfo.GetData();
-            if (!bReadSuccess)
-                Thread.Sleep(15 * 1000);
             while (true) {
-                bReadSuccess = CTInfo.GetData();
+                bool bReadSuccess = CTInfo.GetData();
+
                 if (bReadSuccess) {
                     uint index;
-                    const string helpMsgtemp = "# HELP windows_coretemp_cpu_temp Metric coming from Core Temp\n";
-                    const string typeMsgtemp = "# TYPE windows_coretemp_cpu_temp counter\n";
-                    const string helpMsgLoad = "# HELP windows_coretemp_cpu_load Metric coming from Core Temp\n";
-                    const string typeMsgLoad = "# TYPE windows_coretemp_cpu_load counter\n";
+
                     string path = @"C:\Program Files\windows_exporter\textfile_inputs\CoreTemp.prom";
                     string infoCodeTemp = "";
                     string infoCodeLoad = "";
+                    string infoTjMax = "";
 
                     for (uint i = 0; i < CTInfo.GetCPUCount; i++) {
+                        infoTjMax += "windows_coretemp_TjMax{core=\"" + i + "\"} " + CTInfo.GetTjMax[i] + "\n";
                         for (uint g = 0; g < CTInfo.GetCoreCount; g++) {
                             index = g + (i * CTInfo.GetCoreCount);
-                            infoCodeTemp += "windows_coretemp_cpu_temp{core=\"0," + index + "\"} " + Convert.ToString(CTInfo.GetTemp[index], new CultureInfo("en-US")).Replace(",", ".") + "\n";
-                            infoCodeLoad += "windows_coretemp_cpu_load{core=\"0," + index + "\"} " + CTInfo.GetCoreLoad[index] + "\n";
+                            infoCodeTemp += "windows_coretemp_cpu_temp{core=\""+ i + "," + index + "\"} " + Convert.ToString(CTInfo.GetTemp[index]).Replace(",", ".") + "\n";
+                            infoCodeLoad += "windows_coretemp_cpu_load{core=\"" + i + "," + index + "\"} " + CTInfo.GetCoreLoad[index] + "\n";
                         }
                     }
                     byte[] info = new UTF8Encoding(true).GetBytes(
-                        helpMsgtemp + typeMsgtemp + infoCodeTemp +
-                        helpMsgLoad + typeMsgLoad + infoCodeLoad);
+                        TemplateMsg("TjMax") + infoTjMax +
+                        TemplateMsg("cpu_temp") + infoCodeTemp +
+                        TemplateMsg("cpu_load") + infoCodeLoad);
                     using (FileStream fs = File.Create(path)) {
                         fs.Write(info, 0, info.Length);
                     }
